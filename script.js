@@ -1,14 +1,74 @@
+const questions =[
+    {
+        text: "How does your skin feel after cleansing?",
+        options: ["dry", "oily", "normal", "combination"]
+    },
+    {
+        text: "What is your biggest skin concern?",
+        options: ["acne", "wrinkles", "dark-spots", "hydration"]
+    },
+    {
+        text: "What do you feel most often on your facial skin?",
+        options: ["Acne and blackheads", "Skin feels dry and flaky", "Skin looks oily and shiny", "Skin looks dull and lacks radiance"]
+    },
+    {
+        text: "How often do you exercise in a week?",
+        options: ["Every day", "3-4 times", "1-2 times", "Never"]
+    },
+    {
+        text: "How often do you use sunscreen?",
+        options: ["Every day", "3-4 times", "1-2 times", "Never"]
+    }
+];
+
+document.getElementById('startQuizBtn').onclick = function() {
+    document.getElementById('myModal').style.display = "block";
+    loadQuestion();
+}
+
+function loadQuestion() {
+    const questionContainer = document.getElementById('questionContainer');
+    questionContainer.innerHTML = `<p>${questions[currentQuestion].text}</p>`;
+    questions[currentQuestion].options.forEach(option => {
+        questionContainer.innerHTML += `<label><input type="radio" name="q${currentQuestion + 1}" value="${option}"> ${option}</label><br>`;
+    });
+}
+
+document.querySelector('.close').onclick = function() {
+    document.getElementById('myModal').style.display = "none";
+}
+
+document.getElementById('nextBtn').onclick = function() {
+    if (document.querySelector(`input[name="q${currentQuestion + 1}"]:checked`)) {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            document.getElementById('myModal').style.display = "none";
+            calculateResult();
+        }
+    } else {
+        alert("Please select an answer!");
+    }
+}
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('myModal')) {
+        document.getElementById('myModal').style.display = "none";
+    }
+}
+
+let currentQuestion = 0;
 function calculateResult() {
     let scoreDry = 0;
     let scoreOily = 0;
     let scoreNormal = 0;
     let scoreCombination = 0;
-  
+
     for (let i = 1; i <= 5; i++) {
         const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
         if (selectedOption) {
             const value = selectedOption.value;
-  
             if (i === 1) {
                 if (value === "dry") scoreDry++;
                 if (value === "oily") scoreOily++;
@@ -37,31 +97,30 @@ function calculateResult() {
             }
         }
     }
-  
-    let result= "";
-    let UrlDirect= "";
+    
+    let result = "";
+    let UrlDirect = "";
     if (scoreDry >= scoreOily && scoreDry >= scoreNormal && scoreDry >= scoreCombination) {
         result = "Dry Skin";
-        UrlDirect = "dry-skin.html";  // Pastikan url sudah benar
+        UrlDirect = "dry-skin.html";
     } else if (scoreOily >= scoreDry && scoreOily >= scoreNormal && scoreOily >= scoreCombination) {
         result = "Oily Skin";
-        UrlDirect = "oily-skin.html";  // Pastikan url sudah benar
+        UrlDirect = "oily-skin.html";
     } else if (scoreNormal >= scoreDry && scoreNormal >= scoreOily && scoreNormal >= scoreCombination) {
         result = "Normal Skin";
-        UrlDirect = "normal-skin.html";  // Pastikan url sudah benar
+        UrlDirect = "normal-skin.html";
     } else if (scoreCombination >= scoreDry && scoreCombination >= scoreOily && scoreCombination >= scoreNormal) {
         result = "Combination Skin";
-        UrlDirect = "combination-skin.html";  // Pastikan url sudah benar
+        UrlDirect = "combination-skin.html";
     } else {
         result = "Unknown Skin Type";
     }
-  
-    // Menampilkan hasil quiz
+
     document.getElementById("skinType").textContent = result;
     document.getElementById("result").style.display = "block";
-  
-    // Menunggu 3 detik, kemudian mengarahkan pengguna ke halaman yang sesuai
+
     setTimeout(function() {
         window.location.href = UrlDirect;
-    }, 3000);  // Tunggu 3 detik sebelum mengarahkan
-  }  
+    }, 3000);
+}
+
