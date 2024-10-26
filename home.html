@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produk Skincare</title>
     <link rel="stylesheet" href="homedsn.css">
+    <link rel="icon" href="avatar.png" type="image/png">
 </head>
 <body>
 <header>
-    <h1>ELIXORA SKINCARE</h1>
-    <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="our-product.html">Shopping Cart</a></li>
-        </ul>
-    </nav>
+    <div class="head-menu">
+        <h2 class="logo"> Elixora Skincare</h2>
+        <nav>
+            <a class="menu" href="lomba.html"> Home</a>
+            <a class="menu" href="home.html"> More Product </a>
+            <a class="menu" href="our-product.html"> Shopping Cart</a>
+        </nav>
+    </div>
 </header>
     
-  <div class="container">
+<div class="container">
     <div class="text-section">
         <h1>HI ELIXORIAN,</h1>
         <p>elixora is a skincare solution designed for individuals 
@@ -33,10 +35,30 @@
     </div>
 </div>
 
-  <main>
+<main>
+    <div class="product-slider">
+        <div class="ctgr-cont">
+            <h2>Category Product</h2>
+            <div class="ctgr-product">
+                <img alt="Acne" src="acneskin.jpg">
+                <p>Acne Skincare</p>
+            </div>
+            <div class="ctgr-product">
+                <img alt="Dry" src="dryskin.jpg">
+                <p>Dry Skincare</p>
+            </div>
+            <div class="ctgr-product">
+                <img alt="Normal" src="normalskin.jpg">
+                <p>Normal Skincare</p>
+            </div>
+            <div class="ctgr-product">
+                <img alt="Oily" src="oilyskin.jpg">
+                <p>Oily Skincare</p>
+            </div>
+        </div>
+        <div class="page-prd">
         <h2>Best Seller</h2>
-        <div class="product-slider">
-            <div class="product-item">
+        <div class="product-item">
                 <img src="Acne Product.jpg" alt="Produk 1">
                 <div class="product-info">
                     <h3>Acne Skin Product</h3>
@@ -58,9 +80,27 @@
                 </div>
             </div>
         </div>
-        
-    </section>
-    <div class="container2">
+        <div class="contact-cont">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <img alt="Whaatsapp" src="whaatsapp.png">
+                <p>+62-8593-1294-2214</p>
+            </div>
+            <div class="contact-content">
+                <img alt="Instagram" src="instagram.png">
+                <p>@skincareelixora</p>
+            </div>
+            <div class="contact-content">
+                <img alt="Email" src="email.png">
+                <p>elixoraskinncare@gmail.com</p>
+            </div>
+            <div class="contact-content">
+                <img alt="Tiktok" src="tiktok.png">
+                <p>@skncrxora</p>
+            </div>
+        </div>
+    </div>
+<div class="container2">
         <div class="product">
             <div class="product-image">
                 <img src="Acne Product.jpg" alt="Produk 1">
@@ -91,12 +131,11 @@
                 <a href="our-product.html" class="shop-button">SHOP</a>
             </div>
         </div>
-    </div>
-    
-    
+</div>
 </main>
 
 <footer>
+    <p>&copy; 2024 Elixora Skincare. All rights reserved.</p>
 </footer>
 
   <script src="add-cart.js"></script> 
