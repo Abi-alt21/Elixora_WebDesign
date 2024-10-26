@@ -5,22 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Type Quiz</title>
     <link rel="stylesheet" href="quiz.css">
+    <link rel="icon" href="avatar.png" type="image/png">
 </head>
 <body>
-    <div class="quiz-container">
-        <a href="home.html" class="skip-btn">Skip</a>
-        <h2>Find Your Skin Type</h2>
-        <p>Your guide to dream skin with a tailored skincare plan!</p>
-        <p>Select a goal to start</p>
-        <button id="startQuizBtn">Start Quiz</button>
-        
+<header>
+    <div class="head-menu">
+        <h2 class="logo"> Elixora Skincare</h2>
+        <nav>
+            <a class="menu" href="lomba.html"> Home</a>
+            <a class="menu" href="home.html"> More Product </a>
+            <a class="menu" href="our-product.html"> Shopping Cart</a>
+        </nav>
+    </div>
+</header>
+<main>
+<div class="port">
+    <h2 class="judul">Hi,Elixorian</h2>
+    <video autoplay loop muted>
+        <source src="video.mp4">
+    </video>
+    <div class="isi">
+        <p class="deskripsi">Elixora is a skincare solution designed for individuals 
+            who care about the health and beauty of their skin.<br> We believe that every skin type has unique needs,
+            and our skincare products are designed to provide<br> customized care to keep your skin looking its best.</p>
+        </div>
+</div>
+</main>
+<div class="container">
+        <div class="quiz-container">
+        <h2>Find Type Skin</h2>
+        <div class="img-quiz">
+            <img src="avatar-quiz.jpg" alt="Image Elixora">
+            <h2>Quiz Skin Type</h2>
+            <h3>Select a goal to start</h3>
+            <p>Your guide to dream skin with a tailored skincare plan!</p>
+            <button id="startQuizBtn">Start Quiz</button>
+        </div>
         <div id="result" style="display:none;">
             <h3>Your Skin Type:</h3>
             <p id="skinType"></p>
         </div>
     </div>
-
-    <!-- Modal for Questions -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -30,75 +55,76 @@
             </form>
         </div>
     </div>
+    <div class="main-container">
+        <img alt="imagecontainer" src="homeimg.jpg" width="100" height="350">
+        <div class="overlay">
+            <div class="discount">50% Discount</div>
+            <h2>First Shopping</h2>
+            <p>Start From $15</p>
+            <a href="home.html">Shop</a>
+        </div>
+    </div>
+    <div class="product-container">
+        <h2>Visit More Product</h2>
+        <div class="product-content">
+            <img src="avatar-quiz.jpg" alt="produk img">
+            <h2>Masterclass Product</h2>
+            <h3>Can You Get Here</h3>
+            <p>Find More Product For You Skin In Elixora Skincare </p>
+            <a href="home.html">Visit</a>
+        </div>
+    </div>
+</div>
 
+<div class="cont-product">
+    <div class="card" >
+        <div class="image-container">
+            <img src="Acne Product.jpg" alt="Product Image" class="default-image">
+            <img src="acneskin.jpg" alt="Product Image Hover" class="hover-image">
+        </div>
+        <div class="card-content">
+            <div class="category">Skincare</div>
+            <h3 class="title">Acne Skincare Product</h3>
+            <p class="desk-content">Best Acne Skincare Product For Elixora Skincare After Use 14 Day</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="image-container">
+            <img src="Dry Product.jpg" alt="Product Image" class="default-image">
+            <img src="dryskin.jpg" alt="Product Image Hover" class="hover-image">
+        </div>
+        <div class="card-content">
+            <div class="category">Skincare</div>
+            <h3 class="title">Dry Skincare Product</h3>
+            <p class="desk-content">Best Dry Skincare Product For Elixora Skincare After Use 7 Day</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="image-container">
+            <img src="Normal Product.jpg" alt="Product Image" class="default-image">
+            <img src="normalskin.jpg" alt="Product Image Hover" class="hover-image">
+        </div>
+        <div class="card-content">
+            <div class="category">Skincare</div>
+            <h3 class="title">Normal Skincare Product</h3>
+            <p class="desk-content">Best Normal Skincare Product For Elixora Skincare After Use 14 Day</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="image-container">
+            <img src="Oily Product.jpg" alt="Product Image" class="default-image">
+            <img src="oilyskin.jpg" alt="Product Image Hover" class="hover-image">
+        </div>
+        <div class="card-content">
+            <div class="category">Skincare</div>
+            <h3 class="title">Oily Skincare Product</h3>
+            <p class="desk-content">Best Oily Skincare Product For Elixora Skincare After Use 14 Day</p>
+        </div>
+    </div>
+</div>
     <script src="script.js"></script>
-    <script>
-        const questions =[
-            {
-                text: "How does your skin feel after cleansing?",
-                options: ["dry", "oily", "normal", "combination"]
-            },
-            {
-                text: "What is your biggest skin concern?",
-                options: ["acne", "wrinkles", "dark-spots", "hydration"]
-            },
-            {
-                text: "What do you feel most often on your facial skin?",
-                options: ["Acne and blackheads", "Skin feels dry and flaky", "Skin looks oily and shiny", "Skin looks dull and lacks radiance"]
-            },
-            {
-                text: "How often do you exercise in a week?",
-                options: ["Every day", "3-4 times", "1-2 times", "Never"]
-            },
-            {
-                text: "How often do you use sunscreen?",
-                options: ["Every day", "3-4 times", "1-2 times", "Never"]
-            }
-        ];
-
-        let currentQuestion = 0;
-
-        // Open modal on button click
-        document.getElementById('startQuizBtn').onclick = function() {
-            document.getElementById('myModal').style.display = "block";
-            loadQuestion();
-        }
-
-        // Load the current question
-        function loadQuestion() {
-            const questionContainer = document.getElementById('questionContainer');
-            questionContainer.innerHTML = `<p>${questions[currentQuestion].text}</p>`;
-            questions[currentQuestion].options.forEach(option => {
-                questionContainer.innerHTML += `<label><input type="radio" name="q${currentQuestion + 1}" value="${option}"> ${option}</label><br>`;
-            });
-        }
-
-        // Close the modal when the user clicks on <span> (x)
-        document.querySelector('.close').onclick = function() {
-            document.getElementById('myModal').style.display = "none";
-        }
-
-        // Next button functionality
-        document.getElementById('nextBtn').onclick = function() {
-            if (document.querySelector(`input[name="q${currentQuestion + 1}"]:checked`)) {
-                currentQuestion++;
-                if (currentQuestion < questions.length) {
-                    loadQuestion();
-                } else {
-                    document.getElementById('myModal').style.display = "none";
-                    calculateResult();
-                }
-            } else {
-                alert("Please select an answer!");
-            }
-        }
-
-        // Close modal when user clicks outside of it
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('myModal')) {
-                document.getElementById('myModal').style.display = "none";
-            }
-        }
-    </script>
+    <footer>
+        <p>&copy; 2024 Elixora Skincare. All rights reserved.</p>
+    </footer>
 </body>
 </html>
